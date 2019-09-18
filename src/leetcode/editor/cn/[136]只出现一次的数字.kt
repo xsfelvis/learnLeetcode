@@ -20,7 +20,7 @@ package leetcode.editor.cn
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution2 {
     fun singleNumber(nums: IntArray): Int {
         var singlenum = 0
         for (i in nums) {
