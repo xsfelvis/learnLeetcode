@@ -13,12 +13,12 @@ public class binarySearch {
         if (srcArray[mid] == key) {
             return mid;
         }
-        while (start < end) {
-            mid = (start + end) / 2;
-            if (srcArray[mid] > key) {
-                start = mid + 1;
-            } else if (srcArray[mid] < key) {
+        while (start <= end) {
+            mid = (start + end) / 2; //下标折半
+            if (key < srcArray[mid]) {
                 end = mid - 1;
+            } else if (key > srcArray[mid]) {
+                start = mid + 1;
             } else {
                 return mid;
             }
