@@ -46,7 +46,7 @@ public class ImplementStackUsingQueues {
          */
         public void push(int x) {
             queueIn.add(x);
-            for (int index = 0; index <= queueIn.size() - 1; index++) {
+            for(int index = 0;index<queueIn.size()-1;index++){
                 queueIn.add(queueIn.poll());
             }
         }

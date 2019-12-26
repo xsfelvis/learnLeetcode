@@ -22,35 +22,37 @@
 //     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 // 
 // Related Topics 哈希表 双指针 字符串 Sliding Window
-  
-  package leetcode.editor.cn;
+
+package leetcode.editor.cn;
 
 import java.util.HashMap;
 
-public class LongestSubstringWithoutRepeatingCharacters{
-      public static void main(String[] args) {
-           Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
-      }
-      
-
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        if (s.length()==0) return 0;
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-        int maxLen = 0;
-        int left = 0;
-        for(int i = 0; i < s.length(); i ++){
-            if(map.containsKey(s.charAt(i))){
-                left = Math.max(left,map.get(s.charAt(i)) + 1);
-            }
-            map.put(s.charAt(i),i);
-            maxLen = Math.max(maxLen,i-left+1);
-        }
-        return maxLen;
-
+public class LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
+        Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
     }
-}
+
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            if (s.length() == 0) return 0;
+            HashMap<Character, Integer> map = new HashMap<>();
+            int left = 0;
+            int maxLen = 0;
+            for (int index = 0; index < s.length(); index++) {
+                if(map.containsKey(s.charAt(index))){
+                    //调整窗口
+                    left = Math.max(left,map.get(s.charAt(index))+1);
+                }
+                map.put(s.charAt(index),index);
+                maxLen = Math.max(maxLen,index-left+1);
+            }
+
+            return maxLen;
+
+        }
+    }
 
 //leetcode submit region end(Prohibit modification and deletion)
 }
