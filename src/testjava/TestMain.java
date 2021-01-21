@@ -4,36 +4,37 @@ import java.util.*;
 
 public class TestMain {
     public static void main(String[] args) {
-        String s1 = "misssd";
-        String s2 = "sd";
-        int index = new Solution().strStr(s1,s2);
+        int[] test = new int[]{3, 2, 2, 3};
+        int index = new Solution().removeElement(test, 3);
         System.out.println(index);
 
 
     }
 
     static class Solution {
-        public int strStr(String haystack, String needle) {
-            // 安全性检查
-            if (haystack == null || needle == null)
-                return 0;
-            if(needle.length()==0)
-                return 0;
-            if(!haystack.contains(needle)){
+        public int removeElement(int[] nums, int val) {
+            if (nums == null) {
                 return -1;
             }
-            //固定窗口法
-            int windowsSize = needle.length();
-
-            Character needFirst = needle.charAt(0);
-            int haystackLength = haystack.length();
-            for(int index = 0; index <= haystackLength-1;index++){
-                if(index+windowsSize <= haystackLength
-                        && haystack.substring(index,index+windowsSize).equals(needle)){
-                    return index;
+            int left = 0;
+            int right = 0;
+            while (left <= right && right < nums.length && left < nums.length) {
+                if (nums[right] == val) {
+                    left++;
+                    if(left>=nums.length){
+                        break;
+                    }
+                    //交换
+                    int temp;
+                    temp = nums[left];
+                    nums[left] = nums[right];
+                    nums[right] = temp;
                 }
+                right++;
             }
-            return -1;
+
+            return left + 1;
+
         }
     }
 

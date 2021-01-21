@@ -51,8 +51,27 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution27 {
     public int removeElement(int[] nums, int val) {
+        if (nums == null) {
+            return -1;
+        }
+        int slow = 0;
+        int fast = 0;
+        while (slow <= fast && fast < nums.length) {
+            if (nums[fast] == val) {
+                fast++;
+                continue;
+            } else {
+                //交换
+                int temp = 0;
+                temp = nums[fast];
+                nums[fast] = nums[slow];
+                nums[slow] = temp;
+                slow++;
+            }
+        }
+        return slow;
 
     }
 }
