@@ -42,7 +42,7 @@ package leetcode.editor.cn;
 import java.util.Arrays;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution1 {
+class Solution561 {
     public int arrayPairSum(int[] nums) {
         if (nums == null || nums.length == 0) {
             return -1;
@@ -57,7 +57,6 @@ class Solution1 {
 
 
         return minSum;
-
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

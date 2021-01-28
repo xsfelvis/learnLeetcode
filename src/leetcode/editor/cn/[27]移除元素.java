@@ -58,21 +58,15 @@ class Solution27 {
         }
         int slow = 0;
         int fast = 0;
-        while (slow <= fast && fast < nums.length) {
+
+        for (fast = 0; fast < nums.length; fast++) {
             if (nums[fast] == val) {
-                fast++;
                 continue;
-            } else {
-                //交换
-                int temp = 0;
-                temp = nums[fast];
-                nums[fast] = nums[slow];
-                nums[slow] = temp;
-                slow++;
             }
+            nums[slow] = nums[fast];
+            slow++;
         }
         return slow;
-
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
