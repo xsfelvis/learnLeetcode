@@ -22,7 +22,7 @@ package leetcode.editor.cn;
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+class Solution203 {
     public ListNode removeElements(ListNode head, int val) {
         if (head == null) {
             return head;

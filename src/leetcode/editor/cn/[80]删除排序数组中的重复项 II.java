@@ -52,12 +52,30 @@ package leetcode.editor.cn;
 // nums 按递增顺序排列 
 // 
 // Related Topics 数组 双指针 
-// 👍 348 👎 0
+// 👍 349 👎 0
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution80 {
     public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        // 最大重复次数两次
+        int maxRepeat = 2;
+        // 慢指针slow指向索引为1的位置
+        int slow = maxRepeat - 1;
+        for(int fast = maxRepeat; fast < nums.length; fast++) {
+            // nums[fast] != nums[slow - maxRepeat + 1]
+            // 保证在区间[0,slow]中元素最多不会超过2次
+            if (nums[fast] != nums[slow - maxRepeat + 1]) {
+                // 先扩展区间
+                slow++;
+                // 再赋值
+                nums[slow] = nums[fast];
+            }
+        }
+        return slow + 1;
 
     }
 }

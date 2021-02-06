@@ -4,9 +4,10 @@ import java.util.*;
 
 public class TestMain {
     public static void main(String[] args) {
-        int[] test = new int[]{3, 2, 2, 4, 2, 3};
-        int index = removeElement(test, 2);
-        System.out.println(index);
+
+        List<String> a = new ArrayList();
+        List<Integer> b = new ArrayList();
+        System.out.println(a.getClass() == b.getClass());
     }
 
     public static int removeElement(int[] nums, int val) {

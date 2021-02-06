@@ -56,15 +56,16 @@ class Solution27 {
         if (nums == null) {
             return -1;
         }
+        // 慢指针slow 区间[0,slow)内的元素为值不等于val的元素
         int slow = 0;
-        int fast = 0;
-
-        for (fast = 0; fast < nums.length; fast++) {
-            if (nums[fast] == val) {
-                continue;
+        for(int fast = 0; fast < nums.length; fast++) {
+            // 快指针fast所指向的元素值不等于val=3
+            // 将其值赋值于慢指针所在位置
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                // 赋值完毕之后，慢指针右移一位，等待下一次赋值
+                slow++;
             }
-            nums[slow] = nums[fast];
-            slow++;
         }
         return slow;
     }

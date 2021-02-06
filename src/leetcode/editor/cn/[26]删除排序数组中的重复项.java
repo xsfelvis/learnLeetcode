@@ -51,20 +51,18 @@ class Solution26 {
         if (nums == null) {
             return -1;
         }
+        //快慢指针
         int slow = 0;
-        int fast = 1;
-        while (slow <= fast && fast < nums.length) {
-            if (nums[slow] == nums[fast]) {
-                fast++;
-                continue;
-            }
-
+        for (int fast = 1; fast < nums.length; fast++) {
+            //0-slow 存放合格数
             if (nums[slow] != nums[fast]) {
                 slow++;
                 nums[slow] = nums[fast];
             }
         }
         return slow + 1;
+
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
