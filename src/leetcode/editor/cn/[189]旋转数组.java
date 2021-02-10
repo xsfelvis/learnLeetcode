@@ -49,8 +49,25 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution189 {
     public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        //整体反转
+        reverse(nums, 0, nums.length - 1);
+        //翻转左边
+        reverse(nums, 0, k - 1);
+        //翻转右边
+        reverse(nums, k, nums.length - 1);
+    }
+
+    public void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start ++;
+            end --;
+        }
 
     }
 }
