@@ -46,8 +46,28 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution7 {
+    //题解 https://leetcode-cn.com/problems/reverse-integer/solution/tu-jie-7-zheng-shu-fan-zhuan-by-wang_ni_ma/
+    //栈、取模取余 或者 变成字符串反转但是要注意符号
+    //这里使用取模解法
     public int reverse(int x) {
+        int res = 0;
+        while (x != 0) {
+            //取尾巴
+            int temp = x % 10;
+            //判断最后一位是否溢出
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && temp > Integer.MAX_VALUE % 10)) {
+                return 0;
+            }
+            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && temp < Integer.MIN_VALUE % 10)) {
+                return 0;
+            }
+            res = res * 10 + temp;
+            x /= 10;
+
+        }
+        return res;
+
 
     }
 }

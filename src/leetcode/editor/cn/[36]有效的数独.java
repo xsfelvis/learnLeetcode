@@ -61,8 +61,9 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution36 {
     public boolean isValidSudoku(char[][] board) {
+        return false;
 
     }
 }
