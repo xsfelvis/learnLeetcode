@@ -50,9 +50,13 @@ package leetcode.editor.cn;
  * }
  */
 class Solution21 {
+    //题解
+    // https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/hua-jie-suan-fa-21-he-bing-liang-ge-you-xu-lian-bi/
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        //假节点
         ListNode dumpNode = new ListNode(0);
         ListNode pre = dumpNode;
+        //合并
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 pre.next = l1;
@@ -63,7 +67,7 @@ class Solution21 {
             }
             pre = pre.next;
         }
-
+        //处理剩余的链表
         if (l1 != null) {
             pre.next = l1;
         }
@@ -72,6 +76,23 @@ class Solution21 {
         }
 
         return dumpNode.next;
+
+        //递归解法
+//        if (l1 == null) {
+//            return l2;
+//        }
+//        if (l2 == null) {
+//            return l1;
+//        }
+//        if (l1.val < l2.val) {
+//            l1.next = mergeTwoLists(l1.next, l2);
+//            return l1;
+//        }
+//        if (l2.val < l1.val) {
+//            l2.next = mergeTwoLists(l1, l2.next);
+//            return l2;
+//        }
+
 
     }
 }

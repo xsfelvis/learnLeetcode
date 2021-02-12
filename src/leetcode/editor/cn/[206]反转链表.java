@@ -25,21 +25,32 @@ package leetcode.editor.cn;
  * }
  */
 class Solution206 {
+    //题解 https://leetcode-cn.com/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode-solution-d1k2/
+    //视频 https://leetcode-cn.com/problems/reverse-linked-list/solution/shi-pin-jiang-jie-die-dai-he-di-gui-hen-hswxy/
     public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
+        if(head == null || head.next == null){
             return head;
         }
         ListNode pre = null;
-        ListNode mid = head;
-        ListNode next = null;
-        while (mid!= null) {
-            next = mid.next;
-            mid.next = pre;
-            pre = mid;
-            mid = next;
+        ListNode cur = head;
+        while (cur != null){
+            //保存节点
+            ListNode next = cur.next;
+            //反转节点
+            cur.next = pre;
+            //2个游标移位
+            pre = cur;
+            cur = next;
         }
-
         return pre;
+
+
+        //递归解法
+//        ListNode p = reverseList(head.next);
+//        head.next.next = head;
+//        head.next = null;
+//        return p;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

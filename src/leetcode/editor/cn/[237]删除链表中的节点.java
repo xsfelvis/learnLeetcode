@@ -46,8 +46,13 @@ package leetcode.editor.cn;
  *     ListNode(int x) { val = x; }
  * }
  */
-class Solution {
+class Solution237 {
     public void deleteNode(ListNode node) {
+        if(node == null){
+            return;
+        }
+        node.val = node.next.val;
+        node.next = node.next.next;
         
     }
 }
